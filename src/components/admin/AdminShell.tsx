@@ -7,7 +7,7 @@ const NAV = [
   { to: "/admin/registrations", label: "Registrations", icon: ListChecks, exact: false },
 ] as const;
 
-function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
+function NavLinks({ onNavigate }: { onNavigate?: (() => void) | undefined }) {
   return (
     <nav className="space-y-1">
       {NAV.map(({ to, label, icon: Icon, exact }) => (
@@ -27,7 +27,7 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   );
 }
 
-function SidebarBody({ onNavigate }: { onNavigate?: () => void }) {
+function SidebarBody({ onNavigate }: { onNavigate?: (() => void) | undefined }) {
   return (
     <div className="flex h-full flex-col bg-gradient-to-b from-brand to-brand-dark p-5 text-brand-foreground">
       <Link to="/" onClick={onNavigate} className="flex items-center gap-3">
